@@ -1,0 +1,55 @@
+[debug] [2017-07-26T14:17:54.959Z] ----------------------------------------------------------------------
+[debug] [2017-07-26T14:17:54.962Z] Command:      /home/kemal/dev/v/node/bin/node /home/kemal/dev/v/node/bin/firebase deploy
+[debug] [2017-07-26T14:17:54.963Z] CLI Version:  3.9.1
+[debug] [2017-07-26T14:17:54.963Z] Platform:     linux
+[debug] [2017-07-26T14:17:54.963Z] Node Version: v6.11.1
+[debug] [2017-07-26T14:17:54.963Z] Time:         Wed Jul 26 2017 17:17:54 GMT+0300 (+03)
+[debug] [2017-07-26T14:17:54.963Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-26T14:17:54.975Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-26T14:17:54.975Z] > authorizing via signed-in user
+[debug] [2017-07-26T14:17:54.977Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vesile-cd5c9  
+ Wed Jul 26 2017 17:17:54 GMT+0300 (+03)
+[debug] [2017-07-26T14:17:56.273Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-26T14:17:56.274Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vesile-cd5c9/tokens  
+ Wed Jul 26 2017 17:17:56 GMT+0300 (+03)
+[debug] [2017-07-26T14:17:57.365Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vesile-cd5c9'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2017-07-26T14:18:00.179Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.2.1",
+    "firebase-functions": "^0.5.7"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-07-26T14:18:00.180Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/vesile-cd5c9?view=CONSUMER_VIEW  
+ Wed Jul 26 2017 17:18:00 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:00.181Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/vesile-cd5c9?view=CONSUMER_VIEW  
+ Wed Jul 26 2017 17:18:00 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:01.606Z] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-07-26T14:18:01.694Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-07-26T14:18:01.695Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/vesile-cd5c9  
+ Wed Jul 26 2017 17:18:01 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:01.696Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/vesile-cd5c9/apiKeys  
+ Wed Jul 26 2017 17:18:01 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:02.860Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-26T14:18:03.002Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-07-26T14:18:03.245Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/vesile-cd5c9/configs  
+ Wed Jul 26 2017 17:18:03 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:03.705Z] <<< HTTP RESPONSE 200
+[info] i  hosting: preparing dist directory for upload...
+[warn] ⚠  Warning: Public directory does not contain index.html
+[debug] [2017-07-26T14:18:04.337Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vesile-cd5c9/uploads/-KpzFSRaMrZ62Fe1jZhX?fileCount=11&message=  
+ Wed Jul 26 2017 17:18:04 GMT+0300 (+03)
+[debug] [2017-07-26T14:18:07.943Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-26T14:18:07.943Z] [hosting] .tgz uploaded successfully, waiting for extraction
