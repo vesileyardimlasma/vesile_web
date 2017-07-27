@@ -28,10 +28,7 @@ export class AppComponent {
     this.user = this.afAuth.authState;
 
   }
-  login() {
-    this.afAuth.auth.signInAnonymously();
-  }
-
+  
   logout() {
     this.afAuth.auth.signOut();
   }
