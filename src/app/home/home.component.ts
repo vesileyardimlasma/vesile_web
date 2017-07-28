@@ -1,30 +1,38 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { FirebaseObjectFactoryOpts } from "angularfire2/interfaces";
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
-import { User } from '../_models/index';
-import { UserService } from '../_services/index';
 
 @Component({
     moduleId: module.id,
     templateUrl: 'home.component.html'
 })
-
 export class HomeComponent implements OnInit {
-    currentUser: User;
-    users: User[] = [];
 
-    constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    /*
+    Send(desc: string) {
+      this.items.push({ message: desc });
+      this.msgVal = '';
+    }
+    */
+
+    item: any = null;
+
+    constructor(public af: AngularFireDatabase, private afAuth: AngularFireAuth) {
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        this.af.object('/users/' + this.afAuth.auth.currentUser.uid).subscribe(
+            snapshot => {
+                this.item = snapshot;
+            },
+            error => {
+                this.item = error;
+            }
+        );
+        
     }
-
-    deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
-    }
+   
 }

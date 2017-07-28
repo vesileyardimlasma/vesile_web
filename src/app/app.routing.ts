@@ -3,7 +3,7 @@
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
-import { AuthGuard } from './_guards/index';
+import { AuthGuard } from './_services/index';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -14,4 +14,4 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes/*, { enableTracing: true }*/);
