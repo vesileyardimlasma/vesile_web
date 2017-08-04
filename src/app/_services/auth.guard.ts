@@ -8,8 +8,9 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.afAuth.auth.currentUser != null) {
-            // logged in so return true
+        if (localStorage.getItem("currentUser") != null) {
+            if (this.afAuth.auth==null)
+                this.afAuth.authState.subscribe();
             return true;
         }
 

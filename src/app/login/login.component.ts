@@ -31,13 +31,22 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.afAuth.auth.signInWithEmailAndPassword(this.model.username, this.model.password).then(
-            data => {
-                this.router.navigate([this.returnUrl]);
-                this.alertService.success("Login Successful", false);
-            }
-        ).catch(
-            error => {
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(data => {
+                this.afAuth.auth.signInWithEmailAndPassword(this.model.username, this.model.password).then(
+                    data => {
+                        this.router.navigate([this.returnUrl]);
+                        this.alertService.success("Login Successful", false);
+                        localStorage.setItem("currentUser", this.afAuth.auth.currentUser.uid);
+                    }
+                ).catch(
+                    error => {
+                        this.alertService.error(error.message);
+                        this.logout();
+                        this.loading = false;
+                    });
+            })
+            .catch(error => {
                 this.alertService.error(error.message);
                 this.logout();
                 this.loading = false;
@@ -45,7 +54,9 @@ export class LoginComponent implements OnInit {
     }
 
     logout() {
-        if (this.afAuth.auth.currentUser != null)
+        if (this.afAuth.auth.currentUser != null) {
             this.afAuth.auth.signOut();
+            localStorage.removeItem("currentUser");
+        }
     }
 }

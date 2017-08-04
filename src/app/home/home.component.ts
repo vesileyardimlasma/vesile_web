@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.af.object('/users/' + this.afAuth.auth.currentUser.uid).subscribe(
+        this.af.object('/users/' + localStorage.getItem("currentUser")).subscribe(
             snapshot => {
                 this.item = snapshot;
             },
