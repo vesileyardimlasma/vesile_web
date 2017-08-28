@@ -14,6 +14,7 @@ import { AlertComponent } from './_services/index';
 import { AuthGuard } from './_services/index';
 import { AlertService } from './_services/index';
 import { HomeComponent } from './home/index';
+import { IndigentEditComponent, IndigentSearchComponent} from './indigent/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AppComponent } from './app.component';
@@ -32,6 +33,8 @@ export const firebaseConfig = {
     AppComponent,
     AlertComponent,
     HomeComponent,
+    IndigentEditComponent,
+    IndigentSearchComponent,
     LoginComponent,
     RegisterComponent
   ],
