@@ -1,24 +1,42 @@
 ﻿<div class="col-md-9 col-md-offset-2">
     <h2>Muhtaç Arama</h2>
 
-    <h3> Arama Kriterlerini Giriniz </h3>
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <h3> Arama kriterlerini giriniz </h3>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group col-md-12">
+            <label for="indigentId" class="col-form-label">Kayıt Numarası</label>
+            <input type="number" class="form-control" id="indigentId" placeholder="Kayıt Numarası">
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="form-group col-md-12">
+            <label for="nameSurname" class="col-form-label">Vesileci</label>
+            <input type="text" class="form-control" id="nameSurname" placeholder="Vesileci Ad Soyad">
         </div>
-        <div class="form-check">
-            <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      Check me out
-    </label>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="city" class="col-form-label">İl</label>
+                <select class="form-control" [(ngModel)]="selectedCity" name="city" (change)="onChangeCity($event.target.value)">
+                    <option *ngFor="let c of cities" [value]="c.il_id">{{c.il_ad}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="district" class="col-form-label">İlçe</label>
+                <select class="form-control" [(ngModel)]="selectedDistrict" name="district" (change)="onChangeDistrict($event.target.value)">
+                    <option *ngFor="let d of districts" [value]="d.ilce_id">{{d.ilce_ad}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="town" class="col-form-label">Mahalle</label>
+                <select class="form-control" [(ngModel)]="selectedTown" name="district">
+                    <option *ngFor="let t of towns" [value]="t.semt_id">{{t.semt_ad}}</option>
+                </select>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-primary">Ara</button>
+            </div>
+        </div>
     </form>
 
 </div>
